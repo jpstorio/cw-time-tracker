@@ -9,9 +9,12 @@ const userStore = useUserStore();
 
 onMounted(() => {
 
-  //Initialize Fake Data
-  taskStore.addTaskEntry(userStore.currentUsername, '	18:35', '5', 'Finished Technical Exam Requirements', 'Project 3', '2023-05-15 15:36:11');
-  localStorage.setItem('entries', JSON.stringify(taskStore.entries))
+  // Initialize only when local storage entries is empty
+  if ((JSON.parse(localStorage.getItem('entries')).length) == 0) {
+    //If users exists store it to users state
+    taskStore.addTaskEntry(userStore.currentUsername, '	18:35', '5', 'Finished Technical Exam Requirements', 'Project 3', '2023-05-15 15:36:11');
+    localStorage.setItem('entries', JSON.stringify(taskStore.entries))
+  }
 
   if (localStorage.getItem('entries')) {
     //If users exists store it to users state
