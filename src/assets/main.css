@@ -1,0 +1,28 @@
+@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+#app {
+  max-width: 1280px;
+}
+
+.padding {
+  padding: 25px;
+}
+
+body {
+  display: flex;
+  place-items: center;
+}
+
+@media (max-width: 1024px) {
+  #app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+  }
+
+  .padding {
+    padding: 15px;
+  }
+}
