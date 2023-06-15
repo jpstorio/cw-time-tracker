@@ -1,14 +1,20 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import App from "./App.vue";
+import router from "./router";
+import { OhVueIcon, addIcons } from "oh-vue-icons";
+import { BiCalendarWeek, BiCalendar3 } from "oh-vue-icons/icons";
+import moment from "moment/moment";
 
-import App from './App.vue'
-import router from './router'
+const app = createApp(App);
 
-const app = createApp(App)
+addIcons(BiCalendarWeek, BiCalendar3);
+app.component("v-icon", OhVueIcon);
 
-app.use(createPinia())
-app.use(router)
+app.use(createPinia());
+app.use(router);
+app.use(moment);
 
-app.mount('#app')
+app.mount("#app");

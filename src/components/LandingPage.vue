@@ -22,6 +22,12 @@ onMounted(() => {
 		//Create new local storage data
 		localStorage.setItem('users', JSON.stringify(userStore.users));
 	}
+
+	if (localStorage.getItem('currentLoggedInUser')) {
+		userStore.currentUsername = JSON.parse(localStorage.getItem('currentLoggedInUser'));
+	} else {
+		localStorage.setItem('currentLoggedInUser', JSON.stringify(userStore.currentUsername));
+	}
 })
 
 
@@ -49,6 +55,7 @@ function login(username, password) {
 		alert('Login Successful')
 		router.push('/dashboard')
 		userStore.currentUsername = username;
+		localStorage.setItem('currentLoggedInUser', JSON.stringify(userStore.currentUsername));
 	} else {
 		alert('Invalid username or password');
 	}
