@@ -102,7 +102,11 @@ watch(taskStore, (newRows) => { //Update data on newTask entry
 
 
 watch(selectedProject, () => { //Update table data filter on select change
-  rows.value = taskStore.entries.filter(entry => entry.project === selectedProject.value && entry.username === userStore.currentUsername)
+  if (selectedProject.value != 'All') {
+    rows.value = taskStore.entries.filter(entry => entry.project === selectedProject.value && entry.username === userStore.currentUsername)
+  } else {
+    rows.value = taskStore.entries;
+  }
 });
 
 
