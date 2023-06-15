@@ -121,7 +121,7 @@ function login(username, password) {
 			</div>
 
 			<div class="side_sub_title">
-				Effectively track your work with Time Trakker!
+				Effectively track your work with Time Tracker!
 			</div>
 		</div>
 	</div>
@@ -213,6 +213,7 @@ input[type=password] {
 
 	.landing_page {
 		flex-direction: column;
+		padding: 25px;
 	}
 
 	.form_container,

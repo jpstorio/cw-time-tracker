@@ -4,7 +4,7 @@ import moment from "moment";
 export const useTaskStore = defineStore({
     id: "task",
     state: () => ({
-        projects: ["Project 1", "Project 2", "Project 3"],
+        projects: ["Project 1", "Project 2", "Project 3", "Project 4"],
         entries: [],
         timeEntry: "",
         hours: "",
