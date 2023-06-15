@@ -1,16 +1,24 @@
 # cw-time-tracker
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/jpstorio/cw-time-tracker.git
+```
+
+2. Navigate to the project directory:
+
+```sh
+cd cw-time-tracker
+```
+
+3. Install the package:
 
 ```sh
 npm install
@@ -22,9 +30,4 @@ npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
 # cw-time-tracker
