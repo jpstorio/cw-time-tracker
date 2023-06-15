@@ -1,9 +1,9 @@
 <script setup>
-import { RouterLink, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '../stores/users';
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted } from 'vue';
 
-
+//Variables
 const userStore = useUserStore();
 const router = useRouter();
 const isSignIn = ref(true);
@@ -12,22 +12,29 @@ const password = ref('');
 const newUsername = ref('');
 const newPassword = ref('');
 
+//Lifecycle Hooks
 onMounted(() => {
+
 	if (localStorage.getItem('users')) {
+		//If users exists store it to users state
 		userStore.users = JSON.parse(localStorage.getItem('users'));
 	} else {
+		//Create new local storage data
 		localStorage.setItem('users', JSON.stringify(userStore.users));
 	}
 })
 
+
+//Functions
 function createAccount(newUser, newPass) {
 	if (newUser == '' || newPass == '') {
 		return alert('Fill in the fields!')
 	} else if (userStore.users.find(user => user.username === newUser)) {
+		//If username is already in the database (local storage)
 		return alert('Username already exists!')
 	} else {
-		userStore.addUser(newUser, newPass)
-		localStorage.setItem('users', JSON.stringify(userStore.users));
+		userStore.addUser(newUser, newPass); // use action in state to create new user
+		localStorage.setItem('users', JSON.stringify(userStore.users)); // update local storage data
 		isSignIn.value = true;
 		newUsername.value = '';
 		newPassword.value = '';
@@ -36,6 +43,7 @@ function createAccount(newUser, newPass) {
 }
 
 function login(username, password) {
+	// Check if user exists in the state
 	const userExists = userStore.users.find(user => user.username === username && user.password === password);
 	if (userExists) {
 		alert('Login Successful')
