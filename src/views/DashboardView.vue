@@ -25,5 +25,13 @@ import Content from '../components/Content.vue';
   grid-gap: 10px;
   width: 100vw;
 }
+
+
+@media (max-width: 1300px) {
+  .grid_container {
+    grid-template-columns: 1fr;
+  }
+
+}
 </style>
   
